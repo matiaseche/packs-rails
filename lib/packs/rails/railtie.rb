@@ -6,6 +6,7 @@ module Packs
       config.before_configuration do |app|
         Integrations::Rails.new(app)
         Integrations::FactoryBot.new(app)
+        Integrations::I18n.new(app)
 
         # This is not used within packs-rails. Rather, this allows OTHER tools to
         # hook into packs-rails via ActiveSupport hooks.
