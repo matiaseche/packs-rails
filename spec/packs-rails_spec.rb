@@ -50,4 +50,12 @@ RSpec.describe Packs::Rails do
       end
     end
   end
+
+  context 'I18n integration' do
+    it "autoloads locales paths" do
+      Dir[rails_dir.join('packs', '**', 'config', 'locales', '**', '*.yml').to_s].each do |path|
+        expect(Rails.application.config.i18n.load_path).to include(path)
+      end
+    end
+  end
 end
